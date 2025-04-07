@@ -1,0 +1,49 @@
+@use '../base/variables' as v;
+@use 'sass:color';
+
+.footer {
+    padding: v.$base-spacing * 4 0;
+    margin-top: v.$base-spacing * 8;
+    border-top: 1px solid color.adjust(v.$primary-dark-green, $lightness: 10%);
+
+    &__container {
+        text-align: center;
+    }
+
+    &__nav-list {
+        display: flex;
+        justify-content: center;
+        gap: v.$base-spacing * 3; // 24px
+        margin-bottom: v.$base-spacing * 3; // 24px
+    }
+
+    &__nav-link {
+        color: v.$text-muted;
+        font-size: 14px;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: v.$text-light;
+        }
+    }
+
+    &__socials {
+        margin-bottom: v.$base-spacing * 3; // 24px
+    }
+
+    &__social-link {
+        margin: 0 v.$base-spacing; // 8px
+        font-size: 24px;
+        color: v.$text-muted;
+        transition: color 0.3s ease;
+
+        &:hover {
+             color: v.$text-light;
+        }
+    }
+
+    &__copy {
+        font-size: 14px;
+        color: v.$text-muted;
+    }
+}

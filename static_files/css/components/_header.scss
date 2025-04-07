@@ -1,0 +1,39 @@
+@use '../base/variables' as v;
+
+.header {
+    padding: v.$base-spacing * 2 0; // 16px top/bottom padding
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: v.$text-light;
+    }
+
+    &__nav-list {
+        display: flex;
+        gap: v.$base-spacing * 3; // 24px
+    }
+
+    &__nav-link {
+        color: v.$text-muted;
+        transition: color 0.3s ease;
+        font-size: 16px;
+
+        &:hover,
+        &.active {
+            color: v.$text-light;
+        }
+    }
+
+    @media (max-width: v.$breakpoint-md) {
+        &__nav {
+            display: none;
+        }
+    }
+}

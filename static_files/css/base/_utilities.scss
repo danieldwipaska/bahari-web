@@ -1,0 +1,38 @@
+@use 'variables' as v;
+
+// m-1, m-2, ..., p-1, p-2, ...
+$spacing-levels: 5;
+
+@for $i from 1 through $spacing-levels {
+    .m-#{$i} { margin: v.$base-spacing * $i; }
+    .mt-#{$i} { margin-top: v.$base-spacing * $i; }
+    .mb-#{$i} { margin-bottom: v.$base-spacing * $i; }
+    .ml-#{$i} { margin-left: v.$base-spacing * $i; }
+    .mr-#{$i} { margin-right: v.$base-spacing * $i; }
+    .mx-#{$i} {
+        margin-left: v.$base-spacing * $i;
+        margin-right: v.$base-spacing * $i;
+    }
+    .my-#{$i} {
+        margin-top: v.$base-spacing * $i;
+        margin-bottom: v.$base-spacing * $i;
+    }
+
+    .p-#{$i} { padding: v.$base-spacing * $i; }
+    .pt-#{$i} { padding-top: v.$base-spacing * $i; }
+    .pb-#{$i} { padding-bottom: v.$base-spacing * $i; }
+    .pl-#{$i} { padding-left: v.$base-spacing * $i; }
+    .pr-#{$i} { padding-right: v.$base-spacing * $i; }
+    .px-#{$i} {
+        padding-left: v.$base-spacing * $i;
+        padding-right: v.$base-spacing * $i;
+    }
+    .py-#{$i} {
+        padding-top: v.$base-spacing * $i;
+        padding-bottom: v.$base-spacing * $i;
+    }
+}
+
+.text-center { text-align: center; }
+.d-block { display: block; }
+.d-flex { display: flex; }

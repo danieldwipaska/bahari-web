@@ -1,0 +1,41 @@
+{% load compress static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.ico' %}"/>
+    <title>{{ title }}</title>
+
+    {% compress css %}
+        <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    {% endcompress %}
+</head>
+<body>
+    {% block header %}
+    <header class="header">
+        <div class="header__container container">
+            <a href="{% url 'website:index' %}" class="header__logo">Bahari Irish Pub</a>
+            <nav class="header__nav">
+                <ul class="header__nav-list">
+                    <li><a href="{% url 'website:index' %}" class="header__nav-link active">Home</a></li>
+                    <li><a href="#" class="header__nav-link">About Us</a></li>
+                    <li><a href="#" class="header__nav-link">Menu</a></li>
+                    <li><a href="#" class="header__nav-link">Locations</a></li>
+                    <li><a href="#" class="header__nav-link">Event Gallery</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    {% endblock %}
+
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    {% block footer %}{% endblock %}
+    {% block js %}{% endblock %}
+</body>
+</html>

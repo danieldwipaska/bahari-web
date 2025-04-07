@@ -1,0 +1,30 @@
+@use '../base/variables' as v;
+
+.card {
+    background-color: v.$card-bg;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    &__image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    &__content {
+        padding: v.$base-spacing * 2; // Padding 16px
+    }
+
+    &__title {
+        font-size: 18px;
+        margin-bottom: v.$base-spacing;
+        color: v.$text-light;
+    }
+
+    &__text {
+        font-size: 14px;
+        color: v.$text-muted;
+    }
+}

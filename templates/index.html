@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero__image-container">
+        {# Gambar Placeholder untuk Hero #}
+        <img src="{% static 'imgs/placeholder-1.jpg' %}" alt="Interior Bahari Irish Pub" class="hero__image">
+        <div class="hero__overlay"></div>
+    </div>
+    <div class="hero__content container">
+        <h1 class="hero__title">Welcome to Bahari Irish Pub</h1>
+        <p class="hero__text">
+            A cozy, modern pub inspired by the warmth and hospitality of Ireland. Our menu features elevated Irish classics
+            and a thoughtful selection of spirits, craft beers, and cocktails.
+        </p>
+        <a href="#" class="button button--primary hero__button">View Menu</a>
+    </div>
+</section>
+
+<section class="events section-padding">
+    <div class="events__container container">
+        <h2 class="events__title">Upcoming Events</h2>
+        <div class="events__grid">
+            <div class="card">
+                {# Gambar Placeholder untuk Event 1 #}
+                <img src="{% static 'imgs/placeholder-2.jpg' %}" alt="Trad Sessions" class="card__image">
+                <div class="card__content">
+                    <h3 class="card__title">Trad Sessions</h3>
+                    <p class="card__text">Every Wednesday</p>
+                </div>
+            </div>
+            <div class="card">
+                {# Gambar Placeholder untuk Event 2 #}
+                <img src="{% static 'imgs/placeholder-2.jpg' %}" alt="Whiskey Tasting" class="card__image">
+                <div class="card__content">
+                    <h3 class="card__title">Whiskey Tasting</h3>
+                    <p class="card__text">First Thursday of the month</p>
+                </div>
+            </div>
+            <div class="card">
+                {# Gambar Placeholder untuk Event 3 #}
+                <img src="{% static 'imgs/placeholder-2.jpg' %}" alt="Trivia Night" class="card__image">
+                <div class="card__content">
+                    <h3 class="card__title">Trivia Night</h3>
+                    <p class="card__text">Every Tuesday</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
