@@ -27,3 +27,12 @@ def menu(request: HttpRequest) -> HttpResponse:
     }
     
     return render(request, "menu.html", context)
+
+
+def location(request: HttpRequest) -> HttpResponse:
+    context = {
+        "title": "Location - Bahari Irish Pub",
+        "current_tab": "location",
+    }
+    
+    return render(request, "location.html", context)
