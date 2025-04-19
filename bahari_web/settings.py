@@ -211,6 +211,9 @@ STANDARD_POST_PROCESSORS = [{'PATH': 'thumbnails.post_processors.optimize',
                              'png_command': 'optipng -force -o3 %(filename)s',
                              'jpg_command': JPEGTRAN_COMMAND}]
 
+# Google Maps API
+GOOGLE_MAPS_API_KEY = ''
+
 try:
     from .local_settings import *  # noqa
 except ImportError:

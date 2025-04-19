@@ -23,7 +23,7 @@
                     <li><a href="{% url 'website:index' %}" class="header__nav-link {% if current_tab == 'home' %}active{% endif %}">Home</a></li>
                     <li><a href="{% url "website:about_us" %}" class="header__nav-link {% if current_tab == 'about_us' %}active{% endif %}">About Us</a></li>
                     <li><a href="{% url "website:menu" %}" class="header__nav-link {% if current_tab == 'menu' %}active{% endif %}">Menu</a></li>
-                    <li><a href="#" class="header__nav-link {% if current_tab == 'locations' %}active{% endif %}">Locations</a></li>
+                    <li><a href="{% url "website:location" %}" class="header__nav-link {% if current_tab == 'location' %}active{% endif %}">Location</a></li>
                     <li><a href="#" class="header__nav-link {% if current_tab == 'event_gallery' %}active{% endif %}">Event Gallery</a></li>
                 </ul>
             </nav>
@@ -34,8 +34,8 @@
                 <ul class="header__sidebar-list">
                     <li><a href="{% url 'website:index' %}" class="header__nav-link {% if current_tab == 'home' %}active{% endif %}">Home</a></li>
                     <li><a href="{% url "website:about_us" %}" class="header__nav-link {% if current_tab == 'about_us' %}active{% endif %}">About Us</a></li>
-                    <li><a href="#" class="header__nav-link {% if current_tab == 'menu' %}active{% endif %}">Menu</a></li>
-                    <li><a href="#" class="header__nav-link {% if current_tab == 'locations' %}active{% endif %}">Locations</a></li>
+                    <li><a href="{% url "website:menu" %}" class="header__nav-link {% if current_tab == 'menu' %}active{% endif %}">Menu</a></li>
+                    <li><a href="{% url "website:location" %}" class="header__nav-link {% if current_tab == 'location' %}active{% endif %}">Location</a></li>
                     <li><a href="#" class="header__nav-link {% if current_tab == 'event_gallery' %}active{% endif %}">Event Gallery</a></li>
                 </ul>
             </nav>
@@ -55,7 +55,7 @@
                     <li><a href="{% url 'website:index' %}" class="footer__nav-link">Home</a></li>
                     <li><a href="{% url "website:about_us" %}" class="footer__nav-link">About Us</a></li>
                     <li><a href="{% url "website:menu" %}" class="footer__nav-link">Menu</a></li>     
-                    <li><a href="#" class="footer__nav-link">Locations</a></li>
+                    <li><a href="{% url "website:location" %}" class="footer__nav-link">Location</a></li>
                     <li><a href="#" class="footer__nav-link">Event Gallery</a></li>
                 </ul>
             </nav>

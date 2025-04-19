@@ -2,6 +2,8 @@
 
 .header {
     padding: v.$base-spacing * 2 0; // 16px top/bottom padding
+    border-bottom: 2px solid v.$white-line;
+    margin-bottom: v.$base-spacing * 4;
 
     &__container {
         display: flex;
