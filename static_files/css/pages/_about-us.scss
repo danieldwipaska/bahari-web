@@ -1,0 +1,81 @@
+@use '../base/variables' as v;
+@use '../components/button';
+
+.passage {
+    &__container {
+        max-width: calc(100% - 4 * v.$base-spacing);
+        padding: v.$base-spacing * 2 0; // (32px)
+        display: flex;
+        flex-direction: column;
+        gap: v.$base-spacing * 2; // (16px)
+        margin: 0 auto;
+
+        @media (min-width: v.$breakpoint-md) {
+            max-width: 1140px;
+            margin: v.$base-spacing * 2 auto; // 32px auto
+        }
+    }
+
+    &__title {
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    &__content {
+        font-size: 16px;
+    }
+}
+
+.team {
+    &__container {
+        max-width: calc(100% - 4 * v.$base-spacing);
+        padding: v.$base-spacing * 2 0; // (32px)
+        display: flex;
+        flex-direction: column;
+        gap: v.$base-spacing * 2; // (16px)
+        margin: 0 auto;
+
+        @media (min-width: v.$breakpoint-md) {
+            max-width: 1140px;
+            margin: v.$base-spacing * 2 auto; // 32px auto
+        }
+    }
+
+    &__title {
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: v.$base-spacing * 2; // (16px)
+    }
+
+    &__card {
+        display: flex;
+        align-items: center;
+        gap: v.$base-spacing * 2; // (16px)
+
+        img {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+
+    &__identity {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__name {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    &__role {
+        font-size: 14px;
+        color: v.$text-muted;
+    }
+}

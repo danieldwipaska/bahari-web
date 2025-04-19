@@ -24,4 +24,4 @@ yarn.lock
 .venv/
 
 style.css
-style.map.css
+style.css.map

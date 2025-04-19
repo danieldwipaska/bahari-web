@@ -4,7 +4,6 @@
 .footer {
     padding: v.$base-spacing * 4 0;
     margin-top: v.$base-spacing * 8;
-    border-top: 1px solid color.adjust(v.$primary-dark-green, $lightness: 10%);
 
     &__container {
         text-align: center;
@@ -12,9 +11,14 @@
 
     &__nav-list {
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
-        gap: v.$base-spacing * 3; // 24px
-        margin-bottom: v.$base-spacing * 3; // 24px
+        gap: v.$base-spacing * 7;     // 56px 
+        margin-bottom: v.$base-spacing * 5; // 40px
+
+        @media (min-width: v.$breakpoint-md) {
+            gap: v.$base-spacing * 14; // 160px
+        }
     }
 
     &__nav-link {
@@ -28,22 +32,27 @@
     }
 
     &__socials {
-        margin-bottom: v.$base-spacing * 3; // 24px
+        margin-bottom: v.$base-spacing * 3;
+        display: flex;
+        justify-content: center;
+        gap: v.$base-spacing * 5;     // 40px
     }
 
     &__social-link {
-        margin: 0 v.$base-spacing; // 8px
-        font-size: 24px;
+        margin: 0 v.$base-spacing * 1.5; // 12px
+        font-size: 20px;
+        width: 24px;
         color: v.$text-muted;
         transition: color 0.3s ease;
 
-        &:hover {
-             color: v.$text-light;
+        img {
+            width: 100%;
+            display: block;
         }
     }
 
     &__copy {
-        font-size: 14px;
+        font-size: 14px;              // Ukuran font copyright
         color: v.$text-muted;
     }
 }
