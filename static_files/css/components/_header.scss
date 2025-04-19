@@ -15,6 +15,10 @@
         color: v.$text-light;
     }
 
+    &__nav {
+        display: none;
+    }
+
     &__nav-list {
         display: flex;
         gap: v.$base-spacing * 3; // 24px
@@ -31,8 +35,54 @@
         }
     }
 
-    @media (max-width: v.$breakpoint-md) {
+    &__hamburger {
+        display: block;
+        cursor: pointer;
+        font-size: 24px;
+        color: v.$text-light;
+        width: 50px;
+
+        img {
+            width: 100%;
+            display: block;
+        }
+    }
+
+    &__sidebar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 60%;
+        height: 100%;
+        background-color: v.$card-bg;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        transition: transform 0.3s ease;
+
+        &--hidden {
+            transform: translateX(100%);
+        }
+
+        &-list {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            gap: v.$base-spacing * 3; // 24px
+        }
+    }
+
+    @media (min-width: v.$breakpoint-sm) {
         &__nav {
+            display: block;
+        }
+
+        &__hamburger {
+            display: none;
+        }
+
+        &__sidebar {
             display: none;
         }
     }

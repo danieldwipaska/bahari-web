@@ -20,11 +20,23 @@
             <a href="{% url 'website:index' %}" class="header__logo">Bahari Irish Pub</a>
             <nav class="header__nav">
                 <ul class="header__nav-list">
-                    <li><a href="{% url 'website:index' %}" class="header__nav-link active">Home</a></li>
-                    <li><a href="#" class="header__nav-link">About Us</a></li>
-                    <li><a href="#" class="header__nav-link">Menu</a></li>
-                    <li><a href="#" class="header__nav-link">Locations</a></li>
-                    <li><a href="#" class="header__nav-link">Event Gallery</a></li>
+                    <li><a href="{% url 'website:index' %}" class="header__nav-link {% if current_tab == 'home' %}active{% endif %}">Home</a></li>
+                    <li><a href="{% url "website:about_us" %}" class="header__nav-link {% if current_tab == 'about_us' %}active{% endif %}">About Us</a></li>
+                    <li><a href="#" class="header__nav-link {% if current_tab == 'menu' %}active{% endif %}">Menu</a></li>
+                    <li><a href="#" class="header__nav-link {% if current_tab == 'locations' %}active{% endif %}">Locations</a></li>
+                    <li><a href="#" class="header__nav-link {% if current_tab == 'event_gallery' %}active{% endif %}">Event Gallery</a></li>
+                </ul>
+            </nav>
+            <div class="header__hamburger">
+                <img src="{% static "imgs/icon-hamburger.svg" %}" alt="hamburger">
+            </div>
+            <nav class="header__sidebar header__sidebar--hidden">
+                <ul class="header__sidebar-list">
+                    <li><a href="{% url 'website:index' %}" class="header__nav-link {% if current_tab == 'home' %}active{% endif %}">Home</a></li>
+                    <li><a href="{% url "website:about_us" %}" class="header__nav-link {% if current_tab == 'about_us' %}active{% endif %}">About Us</a></li>
+                    <li><a href="#" class="header__nav-link {% if current_tab == 'menu' %}active{% endif %}">Menu</a></li>
+                    <li><a href="#" class="header__nav-link {% if current_tab == 'locations' %}active{% endif %}">Locations</a></li>
+                    <li><a href="#" class="header__nav-link {% if current_tab == 'event_gallery' %}active{% endif %}">Event Gallery</a></li>
                 </ul>
             </nav>
         </div>
@@ -35,7 +47,47 @@
         {% block content %}{% endblock %}
     </main>
 
-    {% block footer %}{% endblock %}
+    {% block footer %}
+    <footer class="footer">
+        <div class="footer__container container">
+            <nav class="footer__nav">
+                 <ul class="footer__nav-list">
+                    <li><a href="{% url 'website:index' %}" class="footer__nav-link">Home</a></li>
+                    <li><a href="#" class="footer__nav-link">About Us</a></li>
+                    <li><a href="#" class="footer__nav-link">Menu</a></li>     
+                    <li><a href="#" class="footer__nav-link">Locations</a></li>
+                    <li><a href="#" class="footer__nav-link">Event Gallery</a></li>
+                </ul>
+            </nav>
+            <div class="footer__socials">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="footer__social-link">
+                    <img src="{% static "imgs/logo-twitter.svg" %}" alt="twitter">
+                </a> 
+                <a href="#" target="_blank" rel="noopener noreferrer" class="footer__social-link">
+                    <img src="{% static "imgs/logo-facebook.svg" %}" alt="facebook">
+                </a> 
+                <a href="#" target="_blank" rel="noopener noreferrer" class="footer__social-link">
+                    <img src="{% static "imgs/logo-instagram.svg" %}" alt="instagram">
+                </a> 
+            </div>
+            <p class="footer__copy">&copy; {% now 'Y' %} Bahari Irish Pub, All Rights Reserved</p>
+        </div>
+    </footer>
+    {% endblock %}
     {% block js %}{% endblock %}
+    <script>
+        const hamburger = document.querySelector('.header__hamburger');
+        const sidebar = document.querySelector('.header__sidebar');
+
+        hamburger?.addEventListener('click', () => {
+            sidebar.classList.toggle('header__sidebar--hidden');
+        });
+
+        window.addEventListener('click', (event) => {
+            if (!sidebar.classList.contains('header__sidebar--hidden') && !sidebar.contains(event.target) && !hamburger.contains(event.target)) {
+                sidebar.classList.add('header__sidebar--hidden');
+            }
+        });
+    </script>
 </body>
 </html>
