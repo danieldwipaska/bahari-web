@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="menu">
+    <div class="menu__container">
+        <button class="button button--primary" id="category-trigger">Search Categories</button>
+        <div class="menu__categories menu__categories--hidden">
+            <div class="menu__categories-list">
+                <a href="/menu?category=appetizers" class="menu__category {% if request.GET.category == "appetizers" %}active{% endif %}">
+                    Appetizers
+                </a>
+                <a href="/menu?category=beers" class="menu__category {% if request.GET.category == "beers" %}active{% endif %}">
+                    Beers
+                </a>
+                <a href="/menu?category=coffee" class="menu__category {% if request.GET.category == "coffee" %}active{% endif %}">
+                    Coffee
+                </a>
+                <a href="/menu?category=main_courses" class="menu__category {% if request.GET.category == "main_courses" %}active{% endif %}">
+                    Main Courses
+                </a>
+                <a href="/menu?category=side_dishes" class="menu__category {% if request.GET.category == "side_dishes" %}active{% endif %}">
+                    Side Dishes
+                </a>
+            </div>
+        </div>
+        <div class="menu__products">
+            <div class="menu__product">
+                <div class="menu__product-img">
+                    <img src="{% static "imgs/product-placeholder.webp" %}" alt="product">
+                </div>
+                <div class="menu__product-content">
+                    <h5 class="menu__product-title">Irish Specialties</h5>
+                    <p class="menu__product-description">
+                        Our Irish specialties are a must-try for anyone wanting to experience the true flavors of Ireland.
+                    </p>
+                </div>
+            </div>
+            <div class="menu__product">
+                <div class="menu__product-img">
+                    <img src="{% static "imgs/product-placeholder.webp" %}" alt="product">
+                </div>
+                <div class="menu__product-content">
+                    <h5 class="menu__product-title">Irish Specialties</h5>
+                    <p class="menu__product-description">
+                        Our Irish specialties are a must-try for anyone wanting to experience the true flavors of Ireland.
+                    </p>
+                </div>
+            </div>
+            <div class="menu__product">
+                <div class="menu__product-img">
+                    <img src="{% static "imgs/product-placeholder.webp" %}" alt="product">
+                </div>
+                <div class="menu__product-content">
+                    <h5 class="menu__product-title">Irish Specialties</h5>
+                    <p class="menu__product-description">
+                        Our Irish specialties are a must-try for anyone wanting to experience the true flavors of Ireland.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block js %}
+<script>
+    const categoryTrigger = document.getElementById('category-trigger');
+    const categories = document.querySelector('.menu__categories');
+    const body = document.querySelector('body');
+
+    categoryTrigger.addEventListener('click', function() {
+        categories.classList.toggle('menu__categories--hidden');
+        body.classList.toggle('no-scroll');
+    });
+
+    window.addEventListener('click', function(event) {
+        if (!categories.classList.contains('menu__categories--hidden') && !categories.contains(event.target) && !categoryTrigger.contains(event.target)) {
+            categories.classList.add('menu__categories--hidden');
+            body.classList.remove('no-scroll');
+        }
+    });
+</script>
+{% endblock %}
