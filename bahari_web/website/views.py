@@ -18,3 +18,12 @@ def about_us(request: HttpRequest) -> HttpResponse:
     }
     
     return render(request, "about_us.html", context)
+
+
+def menu(request: HttpRequest) -> HttpResponse:
+    context = {
+        "title": "Menu - Bahari Irish Pub",
+        "current_tab": "menu",
+    }
+    
+    return render(request, "menu.html", context)
