@@ -15,6 +15,14 @@
         font-size: 24px;
         font-weight: bold;
         color: v.$text-light;
+        display: flex;
+        gap: v.$base-spacing;
+        align-items: center;
+
+        img {
+            display: block;
+            height: 30px;
+        }
     }
 
     &__nav {
