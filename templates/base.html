@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.ico' %}"/>
+    <link rel="shortcut icon" type="image/png" href="{% static 'imgs/bahari-logo.ico' %}"/>
     <title>{{ title }}</title>
 
     {% compress css %}
@@ -17,7 +17,10 @@
     {% block header %}
     <header class="header">
         <div class="header__container container">
-            <a href="{% url 'website:index' %}" class="header__logo">Bahari Irish Pub</a>
+            <a href="{% url 'website:index' %}" class="header__logo">
+                <img src="{% static 'imgs/bahari-logo.webp' %}" alt="bahari">
+                Bahari Irish Pub
+            </a>
             <nav class="header__nav">
                 <ul class="header__nav-list">
                     <li><a href="{% url 'website:index' %}" class="header__nav-link {% if current_tab == 'home' %}active{% endif %}">Home</a></li>
