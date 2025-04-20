@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero__image-container">
+        <img src="{% static 'imgs/gallery-banner.webp' %}" alt="Interior Bahari Irish Pub" class="hero__image">
+        <div class="hero__overlay"></div>
+    </div>
+    <div class="hero__content container">
+        <h1 class="hero__title">Event Gallery</h1>
+    </div>
+</section>
+<section class="event-gallery">
+    <div class="event-gallery__container">
+        <h3 class="event-gallery__title">Past Events</h3>
+        <div class="event-gallery__content">
+        {% for _ in '1234567' %}
+            <div class="event-gallery__card">
+                <img src="{% static "imgs/placeholder-1.jpg" %}" alt="" class="event-gallery__img">
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</section>
+<div class="photo-popup photo-popup--hidden">
+    <div class="photo-popup__container">
+        <img src="" alt="" class="photo-popup__img">
+        <button class="photo-popup__close-btn">
+            <img src="{% static 'imgs/icon-close.svg' %}" alt="Close" class="photo-popup__close-icon">
+        </button>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script>
+    const photoPopup = document.querySelector('.photo-popup');
+    const photoPopupImg = document.querySelector('.photo-popup__img');
+    const photoPopupCloseBtn = document.querySelector('.photo-popup__close-btn');
+    const body = document.querySelector('body');
+
+    document.querySelectorAll('.event-gallery__img').forEach(img => {
+        img.addEventListener('click', () => {
+            photoPopup.classList.remove('photo-popup--hidden');
+            photoPopupImg.src = img.src;
+
+            body.classList.toggle('no-scroll');
+        });
+    });
+
+    photoPopupCloseBtn.addEventListener('click', () => {
+        photoPopup.classList.add('photo-popup--hidden');
+        body.classList.remove('no-scroll');
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target === photoPopup) {
+            photoPopup.classList.add('photo-popup--hidden');
+            body.classList.remove('no-scroll');
+        }
+    });
+</script>
+{% endblock %}
