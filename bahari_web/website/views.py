@@ -2,22 +2,18 @@ from django.http import HttpRequest, HttpResponse
 
 from django.shortcuts import render
 
+from bahari_web.apps.events.models import Event
+
 
 def index(request: HttpRequest) -> HttpResponse:
+    events = Event.objects.order_by('-start_date')[:3]
+    
     context = {
         "title": "Bahari Irish Pub",
         "current_tab": "home",
+        "events": events,
     }
     return render(request, "index.html", context)
-
-
-def about_us(request: HttpRequest) -> HttpResponse:
-    context = {
-        "title": "About Us - Bahari Irish Pub",
-        "current_tab": "about_us",
-    }
-
-    return render(request, "about_us.html", context)
 
 
 def menu(request: HttpRequest) -> HttpResponse:
@@ -27,21 +23,3 @@ def menu(request: HttpRequest) -> HttpResponse:
     }
 
     return render(request, "menu.html", context)
-
-
-def location(request: HttpRequest) -> HttpResponse:
-    context = {
-        "title": "Location - Bahari Irish Pub",
-        "current_tab": "location",
-    }
-
-    return render(request, "location.html", context)
-
-
-def event_gallery(request: HttpRequest) -> HttpResponse:
-    context = {
-        "title": "Event Gallery - Bahari Irish Pub",
-        "current_tab": "event_gallery",
-    }
-
-    return render(request, "event_gallery.html", context)

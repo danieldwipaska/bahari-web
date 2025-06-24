@@ -52,9 +52,13 @@
     }
 
     &__title {
-        font-size: 48px;
+        font-size: 40px;
         font-weight: bold;
         margin-bottom: v.$base-spacing * 2; // 16px
+
+        @media (min-width: v.$breakpoint-md) {
+            font-size: 48px;
+        }
     }
 
     &__text {
@@ -66,8 +70,13 @@
 
 .events {
     &__title {
+        font-size: 28px;
         text-align: center;
         margin-bottom: v.$base-spacing * 5; // 40px
+        
+        @media (min-width: v.$breakpoint-md) {
+            font-size: 32px;
+        }
     }
 
     &__grid {

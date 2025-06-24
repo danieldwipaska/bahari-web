@@ -23,11 +23,9 @@
             </a>
             <nav class="header__nav">
                 <ul class="header__nav-list">
-                    <li><a href="{% url 'website:index' %}" class="header__nav-link {% if current_tab == 'home' %}active{% endif %}">Home</a></li>
-                    <li><a href="{% url "website:about_us" %}" class="header__nav-link {% if current_tab == 'about_us' %}active{% endif %}">About Us</a></li>
-                    <li><a href="{% url "website:menu" %}" class="header__nav-link {% if current_tab == 'menu' %}active{% endif %}">Menu</a></li>
-                    <li><a href="{% url "website:location" %}" class="header__nav-link {% if current_tab == 'location' %}active{% endif %}">Location</a></li>
-                    <li><a href="{% url "website:event_gallery" %}" class="header__nav-link {% if current_tab == 'event_gallery' %}active{% endif %}">Event Gallery</a></li>
+                    <li><a href="#hero" class="header__nav-link">Home</a></li>
+                    <li><a href="#about-us" class="header__nav-link">About Us</a></li>
+                    <li><a href="#location" class="header__nav-link">Location</a></li>
                 </ul>
             </nav>
             <div class="header__hamburger">
@@ -35,11 +33,9 @@
             </div>
             <nav class="header__sidebar header__sidebar--hidden">
                 <ul class="header__sidebar-list">
-                    <li><a href="{% url 'website:index' %}" class="header__nav-link {% if current_tab == 'home' %}active{% endif %}">Home</a></li>
-                    <li><a href="{% url "website:about_us" %}" class="header__nav-link {% if current_tab == 'about_us' %}active{% endif %}">About Us</a></li>
-                    <li><a href="{% url "website:menu" %}" class="header__nav-link {% if current_tab == 'menu' %}active{% endif %}">Menu</a></li>
-                    <li><a href="{% url "website:location" %}" class="header__nav-link {% if current_tab == 'location' %}active{% endif %}">Location</a></li>
-                    <li><a href="{% url "website:event_gallery" %}" class="header__nav-link {% if current_tab == 'event_gallery' %}active{% endif %}">Event Gallery</a></li>
+                    <li><a href="#hero" class="header__nav-link">Home</a></li>
+                    <li><a href="#about-us" class="header__nav-link">About Us</a></li>
+                    <li><a href="#location" class="header__nav-link">Location</a></li>
                 </ul>
             </nav>
         </div>
@@ -55,11 +51,9 @@
         <div class="footer__container container">
             <nav class="footer__nav">
                  <ul class="footer__nav-list">
-                    <li><a href="{% url 'website:index' %}" class="footer__nav-link">Home</a></li>
-                    <li><a href="{% url "website:about_us" %}" class="footer__nav-link">About Us</a></li>
-                    <li><a href="{% url "website:menu" %}" class="footer__nav-link">Menu</a></li>     
-                    <li><a href="{% url "website:location" %}" class="footer__nav-link">Location</a></li>
-                    <li><a href="{% url "website:event_gallery" %}" class="footer__nav-link">Event Gallery</a></li>
+                    <li><a href="#hero" class="footer__nav-link">Home</a></li>
+                    <li><a href="#about-us" class="footer__nav-link">About Us</a></li>    
+                    <li><a href="#location" class="footer__nav-link">Location</a></li>
                 </ul>
             </nav>
             <div class="footer__socials">
@@ -88,6 +82,10 @@
 
         window.addEventListener('click', (event) => {
             if (!sidebar.classList.contains('header__sidebar--hidden') && !sidebar.contains(event.target) && !hamburger.contains(event.target)) {
+                sidebar.classList.add('header__sidebar--hidden');
+            }
+
+            if (sidebar.contains(event.target) && event.target.closest('.header__nav-link')) {
                 sidebar.classList.add('header__sidebar--hidden');
             }
         });

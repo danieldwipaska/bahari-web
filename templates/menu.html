@@ -1,6 +1,31 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block header %}
+    <header class="header">
+        <div class="header__container container">
+            <a href="{% url 'website:index' %}" class="header__logo">Bahari Irish Pub</a>
+            <nav class="header__nav">
+                <ul class="header__nav-list">
+                    <li><a href="{% url "website:index" %}#hero" class="header__nav-link">Home</a></li>
+                    <li><a href="{% url "website:index" %}#about-us" class="header__nav-link">About Us</a></li>
+                    <li><a href="{% url "website:index" %}#location" class="header__nav-link">Location</a></li>
+                </ul>
+            </nav>
+            <div class="header__hamburger">
+                <img src="{% static "imgs/icon-hamburger.svg" %}" alt="hamburger">
+            </div>
+            <nav class="header__sidebar header__sidebar--hidden">
+                <ul class="header__sidebar-list">
+                    <li><a href="{% url "website:index" %}#hero" class="header__nav-link">Home</a></li>
+                    <li><a href="{% url "website:index" %}#about-us" class="header__nav-link">About Us</a></li>
+                    <li><a href="{% url "website:index" %}#location" class="header__nav-link">Location</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    {% endblock %}
+
 {% block content %}
 <section class="menu">
     <div class="menu__container">

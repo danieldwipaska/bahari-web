@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     'constance',
     
     'bahari_web.apps.users',
+    'bahari_web.apps.events',
+    'bahari_web.apps.live_musics',
 ]
 
 MIDDLEWARE = [

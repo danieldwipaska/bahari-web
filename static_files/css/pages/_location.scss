@@ -3,16 +3,21 @@
 .location {
     &__container {
         max-width: calc(100% - 4 * v.$base-spacing);
-        display: grid;
-        grid-template-columns: 1fr;
         margin: 0 auto;
-        gap: v.$base-spacing * 3;
 
         @media (min-width: v.$breakpoint-md) {
             max-width: 1140px;
             margin: v.$base-spacing * 2 auto; // 32px auto
+        }
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: v.$base-spacing * 4;
+
+        @media (min-width: v.$breakpoint-md) {
             grid-template-columns: 2fr 1fr;
-            gap: 0;
         }
     }
 
@@ -20,10 +25,21 @@
         border-radius: 12px;
         overflow: hidden;
         min-height: 470px;
-        order: 2;
+        order: 1;
 
         @media (min-width: v.$breakpoint-md) {
-            order: 1;
+            order: 2;
+        }
+    }
+
+    &__title {
+        font-size: 28px;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: v.$base-spacing * 4;
+
+        @media (min-width: v.$breakpoint-md) {
+            display: none;
         }
     }
 
@@ -35,6 +51,7 @@
         order: 1;
 
         &-title {
+            display: none;
             font-size: 22px;
             font-weight: 700;
         }
@@ -47,6 +64,10 @@
         @media (min-width: v.$breakpoint-md) {
             padding: v.$base-spacing * 3;
             order: 2;
+
+            &-title {
+                display: block;
+            }
         }
     }
 

@@ -4,7 +4,6 @@
 .passage {
     &__container {
         max-width: calc(100% - 4 * v.$base-spacing);
-        padding: v.$base-spacing * 2 0; // (32px)
         display: flex;
         flex-direction: column;
         gap: v.$base-spacing * 2; // (16px)
@@ -17,12 +16,22 @@
     }
 
     &__title {
-        font-size: 22px;
+        font-size: 32px;
         font-weight: bold;
+        text-align: center;
+
+        @media (min-width: v.$breakpoint-md) {
+            font-size: 28px;
+        }
     }
 
     &__content {
         font-size: 16px;
+
+        @media (min-width: v.$breakpoint-md) {
+            margin: 0 auto;
+            text-align: center;
+        }
     }
 }
 
@@ -44,12 +53,21 @@
     &__title {
         font-size: 22px;
         font-weight: bold;
+        
+        @media (min-width: v.$breakpoint-md) {
+            text-align: center;
+        }
     }
 
     &__content {
         display: flex;
         flex-direction: column;
         gap: v.$base-spacing * 2; // (16px)
+
+        @media (min-width: v.$breakpoint-md) {
+            flex-direction: row;
+            margin: 0 auto;
+        }
     }
 
     &__card {

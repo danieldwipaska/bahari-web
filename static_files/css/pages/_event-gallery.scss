@@ -2,46 +2,35 @@
 
 .event-gallery {
     &__container {
-        max-width: calc(100% - 4 * v.$base-spacing);
         padding: v.$base-spacing * 2 0; // (32px)
         display: flex;
         flex-direction: column;
         gap: v.$base-spacing * 2; // (16px)
-        margin: 0 auto;
-
-        @media (min-width: v.$breakpoint-md) {
-            max-width: 1140px;
-            margin: v.$base-spacing * 2 auto; // 32px auto
-        }
     }
 
     &__title {
-        font-size: 22px;
+        font-size: 28px;
         font-weight: bold;
+        text-align: center;
+
+        @media (min-width: v.$breakpoint-md) {
+            font-size: 32px;
+        }
     }
 
     &__content {
-        display: grid;
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-wrap: nowrap;
         gap: v.$base-spacing * 2;
-
-        @media (min-width: v.$breakpoint-sm) {
-            display: flex;
-            flex-wrap: wrap;
-        }
+        overflow-x: auto;
     }
 
     &__card {
-        width: 100%;
-        height: auto;
+        min-width: 200px;
+        max-height: 200px;
         border-radius: 12px;
         overflow: hidden;
         cursor: pointer;
-
-        @media (min-width: v.$breakpoint-sm) {
-            width: 176px;
-            height: 99px;
-        }
     }
 
     &__img {

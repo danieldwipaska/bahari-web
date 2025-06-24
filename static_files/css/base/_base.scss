@@ -56,6 +56,11 @@ h3 { font-size: 20px; }
 }
 
 .section-padding {
-    padding-top: v.$base-spacing * 8; // 64px
-    padding-bottom: v.$base-spacing * 8; // 64px
+    padding-top: v.$base-spacing * 5; // 40px
+    padding-bottom: v.$base-spacing * 5; // 40px
+}
+
+.hide-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
