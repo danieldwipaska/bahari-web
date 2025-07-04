@@ -7,13 +7,14 @@ class Event(models.Model):
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
     photo = models.ImageField(upload_to="events/photos/", blank=True, null=True)
+    is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         verbose_name = "Event"
         verbose_name_plural = "Events"
-        ordering = ["start_date"]
+        ordering = ["-start_date"]
 
     def __str__(self):
         return self.name

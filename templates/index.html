@@ -25,7 +25,7 @@
         <div class="events__grid">
             {% for event in events %}
             <div class="card">
-                <img src="{{ event.photo.url }}" alt="Trad Sessions" class="card__image">
+                <img src="{% if event.photo %}{{ event.photo.url }}{% endif %}" alt="Trad Sessions" class="card__image">
                 <div class="card__content">
                     <h3 class="card__title">{{ event.name }}s</h3>
                     <p class="card__text">{{ event.start_date }}</p>
@@ -51,62 +51,15 @@
     <div class="events__container container">
         <h2 class="events__title">Live Music</h2>
         <div class="events__grid">
+            {% for live in live_musics %}
             <div class="card">
-                {# Gambar Placeholder untuk Event 1 #}
-                <img src="{% static 'imgs/placeholder-2.jpg' %}" alt="Trad Sessions" class="card__image">
+                <img src="{% if live.photo %}{{ live.photo.url }}{% endif %}" alt="Trad Sessions" class="card__image">
                 <div class="card__content">
-                    <h3 class="card__title">Trad Sessions</h3>
-                    <p class="card__text">Every Monday</p>
+                    <h3 class="card__title">{{ live.name }}</h3>
+                    <p class="card__text">{{ live.schedule }}</p>
                 </div>
             </div>
-            <div class="card">
-                {# Gambar Placeholder untuk Event 2 #}
-                <img src="{% static 'imgs/placeholder-2.jpg' %}" alt="Whiskey Tasting" class="card__image">
-                <div class="card__content">
-                    <h3 class="card__title">Whiskey Tasting</h3>
-                    <p class="card__text">Every Tuesday</p>
-                </div>
-            </div>
-            <div class="card">
-                {# Gambar Placeholder untuk Event 3 #}
-                <img src="{% static 'imgs/placeholder-2.jpg' %}" alt="Trivia Night" class="card__image">
-                <div class="card__content">
-                    <h3 class="card__title">Trivia Night</h3>
-                    <p class="card__text">Every Wednesday</p>
-                </div>
-            </div>
-            <div class="card">
-                {# Gambar Placeholder untuk Event 1 #}
-                <img src="{% static 'imgs/placeholder-2.jpg' %}" alt="Trad Sessions" class="card__image">
-                <div class="card__content">
-                    <h3 class="card__title">Trad Sessions</h3>
-                    <p class="card__text">Every Thursday</p>
-                </div>
-            </div>
-            <div class="card">
-                {# Gambar Placeholder untuk Event 2 #}
-                <img src="{% static 'imgs/placeholder-2.jpg' %}" alt="Whiskey Tasting" class="card__image">
-                <div class="card__content">
-                    <h3 class="card__title">Whiskey Tasting</h3>
-                    <p class="card__text">Every Friday</p>
-                </div>
-            </div>
-            <div class="card">
-                {# Gambar Placeholder untuk Event 3 #}
-                <img src="{% static 'imgs/placeholder-2.jpg' %}" alt="Trivia Night" class="card__image">
-                <div class="card__content">
-                    <h3 class="card__title">Trivia Night</h3>
-                    <p class="card__text">Every Saturday</p>
-                </div>
-            </div>
-            <div class="card">
-                {# Gambar Placeholder untuk Event 3 #}
-                <img src="{% static 'imgs/placeholder-2.jpg' %}" alt="Trivia Night" class="card__image">
-                <div class="card__content">
-                    <h3 class="card__title">Trivia Night</h3>
-                    <p class="card__text">Every Sunday</p>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>
